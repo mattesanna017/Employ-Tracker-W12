@@ -1,4 +1,4 @@
-const {connectMysql, viewOurDepartments, viewOurRoles, viewOurEmployees, addDepartment,addRole, addEmployee, updateEmployeeRole} = require('./lib/home-module'); 
+const {connectMysql, viewOurDepartments, viewOurRoles, viewOurEmployees, addDepartment,addRole, addEmployee, updateEmployeeRole} = require('./lib/mainmenu-module'); 
 
 function questionnaire(){
 
@@ -12,31 +12,37 @@ function questionnaire(){
      .prompt([
         {
         type: "list",
-        name:"home",
+        name:"mainmenu",
         message: "Select an option to continue:",
         choices: ["View our Departments","View our Roles","View our Employees", "Add new Department","Add new Role","Add new Employee","Update Employee Role","Close Terminal"],
     },
     
 ]) 
     .then((response) => {
-        if (response.home == "View our Departments"){
+        if (response.mainmenu == "View our Departments"){
             viewOurDepartments()    
             questionnaire()
         }
-        if (response.home == "View our Roles"){
+        if (response.mainmenu == "View our Roles"){
             viewOurRoles()    
             questionnaire()
         }
-        if (response.home == "View our Employees"){
+        if (response.mainmenu == "View our Employees"){
             viewOurEmployees()    
             questionnaire()
         }
-        if (response.home == "Add new Department"){
+        if (response.mainmenu == "Add new Department"){
             addDepartmentSelection()
         }
-        if (response.home == "Add new Role"){
+        if (response.mainmenu == "Add new Role"){
             renderCompanyDepartments()
             addRoleSelection()
+        }
+        if (answer.mainmenu == "Add new Employee"){
+            renderCompanyEmployees()
+            renderCompanyRoles()
+            addEmployeeSelection()
+
         }
 
     })
@@ -56,6 +62,7 @@ function questionnaire(){
             questionnaire()  
         })
     }
+
     let addRoleSelection  = () =>{
         inquirer
         .prompt([
@@ -78,7 +85,6 @@ function questionnaire(){
             choices: companyDepartments,
             },
         ]) 
-    
         .then ((response) => {
 
             db.query('SELECT * FROM department ', function (err, res) {
@@ -87,15 +93,47 @@ function questionnaire(){
                     department_id=res[i].id
                     addRole(response.new_role, response.add_salary, department_id)
                     questionnaire()
-                }
-                }
-            });
-    
-         
-            
-        })
+                }}
+            })
+         })
     }
 
+    let addEmployeeSelection  = () =>{
+        inquirer
+        .prompt([
+            {
+            type: "input",
+            name:"add_new_firstname",
+            message: "What is the new employee's first name?"
+            },
+
+            {
+            type: "input",
+            name:"add_new_lastname",
+            message: "What is the new employee's last name?"
+            },
+
+            {
+            name:"add_newemployee_role",
+            type: "list",
+            message: "What is the new employee's role?",
+            choices: companyRoles,
+            },
+
+            {
+            type: "list",
+            name:"add_newemployee_manager",
+            message: "Who is the new  employee's manager?",
+            choices: companyEmployeeNames,
+            },
+        ])  
+        .then ((response) => {   
+                  
+            addEmployee(response.add_new_firstname, response.add_new_lastname, response.add_newemployee_role, response.add_newemployee_manager)    
+
+            questionnaire()
+        })
+    }
 
 
 
