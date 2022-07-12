@@ -3,7 +3,7 @@
 ## Table of Contents
 - [User-Story](#user-story)
 - [Usage](#usage)
-- [Walkthrough-Video-Link](#walkthrouugh-Video-Link)
+- [Walkthrough-Video-Link](#walkthrough-Video-Link)
 - [URL of GItHub Repository](#URL-of-GitHub-Repository)
 
 
