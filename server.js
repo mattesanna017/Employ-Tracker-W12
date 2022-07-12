@@ -1,4 +1,4 @@
-const {connectMysql, viewOurDepartments, viewOurRoles, viewOurEmployees, addDepartment,addRole, addEmployee, updateEmployeeRole} = require('./lib/mainmenu-module'); 
+const {connectMysql, viewOurDepartments, viewOurRoles, viewOurEmployees, addDepartment,addRole, addEmployee, updateEmployeeRole} = require('./lib/menu-module'); 
 
 function questionnaire(){
 
@@ -12,44 +12,41 @@ function questionnaire(){
      .prompt([
         {
         type: "list",
-        name:"mainmenu",
+        name:"menu",
         message: "Select an option to continue:",
-        choices: ["View our Departments","View our Roles","View our Employees", "Add new Department","Add new Role","Add new Employee","Update Employee Role","Close Terminal"],
+        choices: ["View our Departments","View our Roles","View our Employees", "Add new Department","Add new Role","Add new Employee","Update Employee Role"],
     },
     
 ]) 
-    .then((response) => {
-        if (response.mainmenu == "View our Departments"){
+    .then((answer) => {
+        if (answer.menu == "View our Departments"){
             viewOurDepartments()    
             questionnaire()
         }
-        if (response.mainmenu == "View our Roles"){
+        if (answer.menu == "View our Roles"){
             viewOurRoles()    
             questionnaire()
         }
-        if (response.mainmenu == "View our Employees"){
+        if (answer.menu == "View our Employees"){
             viewOurEmployees()    
             questionnaire()
         }
-        if (response.mainmenu == "Add new Department"){
+        if (answer.menu == "Add new Department"){
             addDepartmentSelection()
         }
-        if (response.mainmenu == "Add new Role"){
+        if (answer.menu == "Add new Role"){
             renderCompanyDepartments()
             addRoleSelection()
         }
-        if (response.mainmenu == "Add new Employee"){
+        if (answer.menu == "Add new Employee"){
             renderCompanyEmployees()
             renderCompanyRoles()
             addEmployeeSelection()
         }
-        if (response.mainmenu == "Update Employee Role"){
+        if (answer.menu == "Update Employee Role"){
             renderCompanyEmployees()
             renderCompanyRoles()
             updateEmployeeSelection()
-        }
-        if (response.mainmenu == "Close Terminal"){
-            process.exit();
         }
     })
 
@@ -63,8 +60,8 @@ function questionnaire(){
             },
         ]) 
     
-        .then ((response) => {
-            addDepartment(response.new_department)
+        .then ((answers) => {
+            addDepartment(answers.new_department)
             questionnaire()  
         })
     }
@@ -91,13 +88,13 @@ function questionnaire(){
             choices: companyDepartments,
             },
         ]) 
-        .then ((response) => {
+        .then ((answers) => {
 
-            db.query('SELECT * FROM department ', function (err, res) {
-                for (i=0; i< res.length; i++){
-                if(res[i].department_name == response.add_department){
-                    department_id=res[i].id
-                    addRole(response.new_role, response.add_salary, department_id)
+            db.query('SELECT * FROM department ', function (err, results) {
+                for (i=0; i< results.length; i++){
+                if(results[i].department_name == answers.add_department){
+                    department_id=results[i].id
+                    addRole(answers.new_role, answers.add_salary, department_id)
                     questionnaire()
                 }}
             })
@@ -133,9 +130,9 @@ function questionnaire(){
             choices: companyEmployeeNames,
             },
         ])  
-        .then ((response) => {   
+        .then ((answers) => {   
                   
-            addEmployee(response.add_new_firstname, response.add_new_lastname, response.add_newemployee_role, response.add_newemployee_manager)    
+            addEmployee(answers.add_new_firstname, answers.add_new_lastname, answers.add_newemployee_role, answers.add_newemployee_manager)    
 
             questionnaire()
         })
@@ -159,34 +156,34 @@ function questionnaire(){
             },
         ]) 
     
-        .then ((response) => {   
-            console.log(response.role_update)
-            console.log(response.employee_update)
-            updateEmployeeRole(response.role_update,response.employee_update)
+        .then ((answers) => {   
+            console.log(answers.role_update)
+            console.log(answers.employee_update)
+            updateEmployeeRole(answers.role_update, answers.employee_update)
 
             questionnaire()
         })
     }
 
     let renderCompanyDepartments =() =>{
-        db.query('SELECT * FROM department ', function (err, res) {
-            for (i=0; i< res.length; i++){
-                companyDepartments.push(res[i].department_name)
+        db.query('SELECT * FROM department ', function (err, results) {
+            for (i=0; i< results.length; i++){
+                companyDepartments.push(results[i].department_name)
             }           
         })
     }
 
     
     let renderCompanyRoles =() =>{
-        db.query('SELECT id as value, title as name FROM employee_role ', function (err, res) {
+        db.query('SELECT id as value, title as name FROM employee_role ', function (err, results) {
         
             let renderList=[];
             
-            for(i=0; i< res.length; i++){
-                renderList.push(res[i])
+            for(i=0; i< results.length; i++){
+                renderList.push(results[i])
             }
             
-            for (i=0; i< res.length; i++){
+            for (i=0; i< results.length; i++){
                 let renderName = renderList.pop()
                 companyRoles.push(renderName)
             }
@@ -194,16 +191,16 @@ function questionnaire(){
     }
 
     let renderCompanyEmployees =() =>{
-        db.query("SELECT id as value, CONCAT(first_name, ' ', last_name) as name FROM employee", function (err, res) {  
+        db.query("SELECT id as value, CONCAT(first_name, ' ', last_name) as name FROM employee", function (err, results) {  
         
             let renderList=[];
             
             
-            for(i=0; i< res.length; i++){
-                renderList.push(res[i])
+            for(i=0; i< results.length; i++){
+                renderList.push(results[i])
             }
             
-            for (i=0; i< res.length; i++){
+            for (i=0; i< results.length; i++){
                 let renderName = renderList.pop()
                 companyEmployeeNames.push(renderName)
             }
