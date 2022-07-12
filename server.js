@@ -20,16 +20,25 @@ function questionnaire(){
 ]) 
     .then((answer) => {
         if (answer.menu == "View our Departments"){
-            viewOurDepartments()    
-            questionnaire()
+            viewOurDepartments().then(([rows] )=> {
+            console.table(rows);
+            console.log('\n')
+            questionnaire();
+            });
         }
         if (answer.menu == "View our Roles"){
-            viewOurRoles()    
-            questionnaire()
+            viewOurRoles().then(([rows] )=> {
+                console.table(rows);
+                console.log('\n')
+                questionnaire();
+                });
         }
         if (answer.menu == "View our Employees"){
-            viewOurEmployees()    
-            questionnaire()
+            viewOurEmployees().then(([rows] )=> {
+                console.table(rows);
+                console.log('\n')
+                questionnaire();
+                });
         }
         if (answer.menu == "Add new Department"){
             addDepartmentSelection()
