@@ -168,11 +168,48 @@ function questionnaire(){
         })
     }
 
+    let renderCompanyDepartments =() =>{
+        db.query('SELECT * FROM department ', function (err, res) {
+            for (i=0; i< res.length; i++){
+                companyDepartments.push(res[i].department_name)
+            }           
+        })
+    }
+
     
+    let renderCompanyRoles =() =>{
+        db.query('SELECT id as value, title as name FROM employee_role ', function (err, res) {
+        
+            let renderList=[];
+            
+            for(i=0; i< res.length; i++){
+                renderList.push(res[i])
+            }
+            
+            for (i=0; i< res.length; i++){
+                let renderName = renderList.pop()
+                companyRoles.push(renderName)
+            }
+        })
+    }
 
-
-
-
+    let renderCompanyEmployees =() =>{
+        db.query("SELECT id as value, CONCAT(first_name, ' ', last_name) as name FROM employee", function (err, res) {  
+        
+            let renderList=[];
+            
+            
+            for(i=0; i< res.length; i++){
+                renderList.push(res[i])
+            }
+            
+            for (i=0; i< res.length; i++){
+                let renderName = renderList.pop()
+                companyEmployeeNames.push(renderName)
+            }
+        })
+    }
+   
 }
 
 connectMysql()
