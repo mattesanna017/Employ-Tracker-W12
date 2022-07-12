@@ -38,13 +38,19 @@ function questionnaire(){
             renderCompanyDepartments()
             addRoleSelection()
         }
-        if (answer.mainmenu == "Add new Employee"){
+        if (response.mainmenu == "Add new Employee"){
             renderCompanyEmployees()
             renderCompanyRoles()
             addEmployeeSelection()
-
         }
-
+        if (response.mainmenu == "Update Employee Role"){
+            renderCompanyEmployees()
+            renderCompanyRoles()
+            updateEmployeeSelection()
+        }
+        if (response.mainmenu == "Close Terminal"){
+            process.exit();
+        }
     })
 
     let addDepartmentSelection  = () =>{
@@ -134,6 +140,36 @@ function questionnaire(){
             questionnaire()
         })
     }
+
+    let updateEmployeeSelection = () =>{ 
+        inquirer
+        .prompt([
+
+            {
+            type: "list",
+            name:"employee_update",
+            message: "Select an employee to update his/her role:",
+            choices: companyEmployeeNames,
+            },
+
+            {type: "list",
+            name:"role_update",
+            message: "Assign a new role to the selected employee:",
+            choices: companyRoles,
+            },
+        ]) 
+    
+        .then ((response) => {   
+            console.log(response.role_update)
+            console.log(response.employee_update)
+            updateEmployeeRole(response.role_update,response.employee_update)
+
+            questionnaire()
+        })
+    }
+
+    
+
 
 
 
