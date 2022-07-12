@@ -1,14 +1,14 @@
 # Employ-Tracker-W12
 
 ## Table of Contents
-- [User Story](#userstory)
+- [User-Story](#user-story)
 - [Usage](#usage)
-- [Walkthrough Video Link](#walkThrouughVideoLink)
-- [URL of GItHub Repository](#URL)
+- [Walkthrough-Video-Link](#walkthrouugh-Video-Link)
+- [URL of GItHub Repository](#URL-of-GitHub-Repository)
 
 
 
-## User Story
+## User-Story
 
 ```md
 AS A business owner
@@ -38,7 +38,7 @@ WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
 ```
 
-## Walkthrough Video Link
+## Walkthrough-Video-Link
 
 
-## URL of GItHub Repository
+## URL-of-GItHub-Repository
