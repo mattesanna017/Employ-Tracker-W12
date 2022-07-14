@@ -13,7 +13,7 @@ function questionnaire(){
         {
         type: "list",
         name:"menu",
-        message: "Select an option to continue:",
+        message: "SELECT AN OPTION TO CONTINUE:",
         choices: ["View our Departments","View our Roles","View our Employees", "Add new Department","Add new Role","Add new Employee","Update Employee Role", "Close Shell"],
     },
     
