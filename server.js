@@ -14,7 +14,7 @@ function questionnaire(){
         type: "list",
         name:"menu",
         message: "Select an option to continue:",
-        choices: ["View our Departments","View our Roles","View our Employees", "Add new Department","Add new Role","Add new Employee","Update Employee Role"],
+        choices: ["View our Departments","View our Roles","View our Employees", "Add new Department","Add new Role","Add new Employee","Update Employee Role", "Close Shell"],
     },
     
 ]) 
@@ -57,6 +57,13 @@ function questionnaire(){
             renderCompanyRoles()
             updateEmployeeSelection()
         }
+        if (answer.menu == "Close Shell"){
+            process.exit();
+
+        }
+
+        
+
     })
 
     let addDepartmentSelection  = () =>{
@@ -150,6 +157,11 @@ function questionnaire(){
     let updateEmployeeSelection = () =>{ 
         inquirer
         .prompt([
+            {
+            type: "input",   
+            name:"updated_credentials",
+            message: "Please enter the updated credentials",
+            },
 
             {
             type: "list",
