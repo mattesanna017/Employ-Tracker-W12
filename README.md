@@ -1,5 +1,9 @@
 # Employ-Tracker-W12
 
+## Description
+The application allows the user to view, add and update the Employee records.
+
+
 ## Table of Contents
 - [User-Story](#user-story)
 - [Usage](#usage)
@@ -38,7 +42,33 @@ WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
 ```
 
-## Walkthrough-Video-Link
+## Screenshots-of-Deployment
+### SQL Structure
+![alt text](./Assets/12-sql-homework-demo-01.png "sql structure");
 
+### Departments
+#### Departments at early stage
+![alt text](./Assets/earlyDep.PNG "Departments at early stage");
+#### Added Department
+![alt text](./Assets/addDep.PNG "Added Department");
+
+### Roles
+#### Roles at early stage
+![alt text](./Assets/earlRole.PNG "Roles at early stage");
+#### Added Role
+![alt text](./Assets/addRole.PNG "Added Roles");
+
+### View Employee
+#### Employee at early stage
+![alt text](./Assets/earlEmp.PNG "Employee at early stage");
+#### Added Employee
+![alt text](./Assets/addEmp.PNG "Added Employee");
+#### Updated Employee
+![alt text](./Assets/updEmp.PNG "Updated Employee");
+
+
+## Walkthrough-Video-Link
+https://youtu.be/SdDhyjedPtY
 
 ## URL-of-GitHub-Repository
+https://github.com/mattesanna017/Employ-Tracker-W12
