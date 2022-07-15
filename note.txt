@@ -5,3 +5,8 @@ source db/seeds.sql
 quit
 
 npm start
+
+git add .
+
+git commit -m " "
+git push

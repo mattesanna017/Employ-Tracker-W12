@@ -77,8 +77,15 @@ function questionnaire(){
         ]) 
     
         .then ((answers) => {
-            addDepartment(answers.new_department)
-            questionnaire()  
+            addDepartment(answers.new_department).then(
+                viewOurDepartments().then(([rows]) => {
+                    console.table(rows);
+                    console.log('\n')
+                    questionnaire()
+                }
+                )
+            )
+            
         })
     }
 
@@ -90,13 +97,13 @@ function questionnaire(){
             name:"new_role",
             message: "What is the name of new the role?"
             },
-
+    
             {
             type: "input",
             name:"add_salary",
             message: "What is the salary of the new role?"
             },
-
+    
             {
             type: "list",
             name:"add_department", 
@@ -105,7 +112,7 @@ function questionnaire(){
             },
         ]) 
         .then ((answers) => {
-
+    
             db.query('SELECT * FROM department ', function (err, results) {
                 for (i=0; i< results.length; i++){
                 if(results[i].department_name == answers.add_department){

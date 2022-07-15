@@ -15,3 +15,4 @@ VALUES ("Kasete", "Goitom", 2, 2),
        ("Edoardo", "Secreto", 1, NULL),
        ("James", "Barnes", 2, 2);
     
+    
