@@ -7,8 +7,11 @@ The application allows the user to view, add and update the Employee records.
 ## Table of Contents
 - [User-Story](#user-story)
 - [Usage](#usage)
+- [Screenshots-of-Deployment](#screenshots-of-Deployment)
 - [Walkthrough-Video-Link](#walkthrough-Video-Link)
+- [Future-Development])(#future-development)
 - [URL-of-GitHub-Repository](#URL-of-GitHub-Repository)
+
 
 
 
@@ -69,6 +72,9 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 ## Walkthrough-Video-Link
 https://youtu.be/SdDhyjedPtY
+
+## Future-Development
+To make all tables displayed in the terminal after user select add new employee, add new newrole and update employee
 
 ## URL-of-GitHub-Repository
 https://github.com/mattesanna017/Employ-Tracker-W12
