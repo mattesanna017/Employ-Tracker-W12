@@ -51,22 +51,22 @@ THEN I am prompted to select an employee to update and their new role and this i
 - node.js
 
 ## Screenshots-of-Deployment
-### SQL Structure
+### - SQL Structure
 ![alt text](./Assets/12-sql-homework-demo-01.png "sql structure");
 
-### Departments
+### - Departments
 #### Departments at early stage
 ![alt text](./Assets/earlyDep.PNG "Departments at early stage");
 #### Added Department
 ![alt text](./Assets/addDep.PNG "Added Department");
 
-### Roles
+### - Roles
 #### Roles at early stage
 ![alt text](./Assets/earlRole.PNG "Roles at early stage");
 #### Added Role
 ![alt text](./Assets/addRole.PNG "Added Roles");
 
-### View Employee
+### - View Employee
 #### Employee at early stage
 ![alt text](./Assets/earlEmp.PNG "Employee at early stage");
 #### Added Employee
