@@ -7,9 +7,10 @@ The application allows the user to view, add and update the Employee records.
 ## Table of Contents
 - [User-Story](#user-story)
 - [Usage](#usage)
+- [Installation] (#Installation)
 - [Screenshots-of-Deployment](#screenshots-of-Deployment)
 - [Walkthrough-Video-Link](#walkthrough-Video-Link)
-- [Future-Development](#Future-Development)
+- [Future-Developments](#Future-Developments)
 - [URL-of-GitHub-Repository](#URL-of-GitHub-Repository)
 
 
@@ -45,6 +46,10 @@ WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
 ```
 
+## Installation
+- mysql
+- node.js
+
 ## Screenshots-of-Deployment
 ### SQL Structure
 ![alt text](./Assets/12-sql-homework-demo-01.png "sql structure");
@@ -73,8 +78,8 @@ THEN I am prompted to select an employee to update and their new role and this i
 ## Walkthrough-Video-Link
 https://youtu.be/SdDhyjedPtY
 
-## Future-Development
-To make all tables displayed in the terminal after user select add new employee, add new newrole and update employee
+## Future-Developments
+To make all tables displayed in the terminal after user selects add new employee, add new newrole and update employee and fills their fields.
 
 ## URL-of-GitHub-Repository
 https://github.com/mattesanna017/Employ-Tracker-W12
