@@ -9,7 +9,7 @@ The application allows the user to view, add and update the Employee records.
 - [Usage](#usage)
 - [Screenshots-of-Deployment](#screenshots-of-Deployment)
 - [Walkthrough-Video-Link](#walkthrough-Video-Link)
-- [Future-Development])(#future-development)
+- [Future-Development](#Future-Development)
 - [URL-of-GitHub-Repository](#URL-of-GitHub-Repository)
 
 
