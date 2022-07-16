@@ -66,8 +66,8 @@ THEN I am prompted to select an employee to update and their new role and this i
 #### Added Role
 ![alt text](./Assets/addRole.PNG "Added Roles");
 
-### - View Employee
-#### Employee at early stage
+### - Employees
+#### Employees at early stage
 ![alt text](./Assets/earlEmp.PNG "Employee at early stage");
 #### Added Employee
 ![alt text](./Assets/addEmp.PNG "Added Employee");
