@@ -7,7 +7,7 @@ The application allows the user to view, add and update the Employee records.
 ## Table of Contents
 - [User-Story](#user-story)
 - [Usage](#usage)
-- [Installation] (#Installation)
+- [Installation](#Installation)
 - [Screenshots-of-Deployment](#screenshots-of-Deployment)
 - [Walkthrough-Video-Link](#walkthrough-Video-Link)
 - [Future-Developments](#Future-Developments)
