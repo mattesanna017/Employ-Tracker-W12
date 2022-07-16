@@ -79,7 +79,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 https://youtu.be/SdDhyjedPtY
 
 ## Future-Developments
-To make all tables displayed in the terminal after user selects add new employee, add new newrole and update employee and fills their fields.
+After the user selects "add new employee", "add new role" and "update employee" and fills their fields, the user can be able to visualized straight away the updated database table.
 
 ## URL-of-GitHub-Repository
 https://github.com/mattesanna017/Employ-Tracker-W12
